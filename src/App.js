@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:11:56
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-28 21:53:06
+ * @LastEditTime: 2019-10-28 22:00:11
  */
 // Package
 import React, { Component } from "react";
@@ -46,10 +46,12 @@ class App extends Component {
                   </Menu.Item>
 
                   <Menu.Item key="2">
-                    <Link to="/sr">人脸画像合成</Link>
+                    <Link to="/fp">人脸画像合成</Link>
                   </Menu.Item>
 
-                  <Menu.Item key="3">图像超分辨率重建</Menu.Item>
+                  <Menu.Item key="3">
+                    <Link to="/sr">图像超分辨率重建</Link>
+                  </Menu.Item>
                 </Menu>
               </Row>
             </Col>

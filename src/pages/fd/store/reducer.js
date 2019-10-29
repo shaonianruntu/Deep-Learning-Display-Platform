@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-15 14:51:22
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-28 21:11:27
+ * @LastEditTime: 2019-10-29 16:56:03
  */
 import { actionTypes } from "./index";
 import { fromJS } from "immutable";
@@ -13,7 +13,10 @@ const defaultState = fromJS({
   imgUrl: "",
   loading: false,
   callback: false,
-  callBackInterval: ""
+  callBackInterval: "",
+
+  cutList: [],
+  cutSampleList: []
 });
 
 export default (state = defaultState, action) => {
@@ -28,6 +31,11 @@ export default (state = defaultState, action) => {
       return state.set("loading");
     case actionTypes.UPDATE_CALLBACK:
       return state.set("callback", true);
+
+    case actionTypes.CHANGE_IMAGE_CUT:
+      return state.set("cutList", fromJS(action.cutList));
+    case actionTypes.CHANGE_IMAGE_CUT_SAMPLE:
+      return state.set("cutSampleList", fromJS(action.cutSampleList));
     default:
       return state;
   }

@@ -21,8 +21,8 @@
   {
     .ant-card
     {
-      width: 416px;
-      min-height: 473px;
+      // width: 466px;
+      min-height: 404px;
 
       border: 1px solid #e3e6f0;
       border-radius: 7px;
@@ -45,8 +45,11 @@
     .ant-upload.ant-upload-select-picture-card
     {
       // display: inline-block;
-      width: 368px;
-      height: 368px;
+      // width: 418px;
+      width: 100%;
+      min-height: 300px;
+      // height: 100%;
+      // height: 418px;
       margin: 0;
       .anticon
       {
@@ -69,8 +72,10 @@
   {
     display: table-cell;
 
-    width: 368px;
-    height: 368px;
+    width: 100%;
+    min-height: 300px;
+    // width: 418px;
+    // height: 418px;
     padding: 8px;
 
     text-align: center;
@@ -92,11 +97,11 @@
     font-size: 36px;
 
     display: block;
-
-    width: 300px;
-    height: 473px;
+    // width: 300px;
     // display: inline-block;
-    padding: 213px 0;
+
+    height: 70px;
+    padding: 170px 0 0;
 
     text-align: center;
 
@@ -131,6 +136,26 @@
       :hover
       {
         color: #ffd666;
+      }
+    }
+  }
+
+  .cutImage
+  {
+    margin: 24px 0;
+    img
+    {
+      width: 85px;
+      margin: 12px;
+
+      border-radius: 4px;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+    }
+    :global
+    {
+      .ant-card
+      {
+        width: 100%;
       }
     }
   }

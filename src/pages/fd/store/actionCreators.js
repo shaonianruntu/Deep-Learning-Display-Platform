@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-15 16:50:26
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-28 21:10:15
+ * @LastEditTime: 2019-10-29 16:55:40
  */
 import { actionTypes } from "./index";
 import axios from "axios";
@@ -65,6 +65,44 @@ export const waitingCallBack = () => {
       })
       .catch(() => {
         console.log("post play action error");
+      });
+  };
+};
+
+const changeImageCut = data => ({
+  type: actionTypes.CHANGE_IMAGE_CUT,
+  cutList: data
+});
+
+export const getImageCut = () => {
+  return dispatch => {
+    axios
+      .get("/api/fd_cut.json")
+      .then(res => {
+        const data = res.data.data;
+        dispatch(changeImageCut(data));
+      })
+      .catch(() => {
+        console.log("get image cut error");
+      });
+  };
+};
+
+const changeImageCutSample = data => ({
+  type: actionTypes.CHANGE_IMAGE_CUT_SAMPLE,
+  cutSampleList: data
+});
+
+export const getImageSampleCut = () => {
+  return dispatch => {
+    axios
+      .get("/api/fd_cutsample.json")
+      .then(res => {
+        const data = res.data.data;
+        dispatch(changeImageCutSample(data));
+      })
+      .catch(() => {
+        console.log("get image cut sample error");
       });
   };
 };

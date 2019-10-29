@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-15 16:50:26
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 16:55:40
+ * @LastEditTime: 2019-10-29 17:49:26
  */
 import { actionTypes } from "./index";
 import axios from "axios";
@@ -100,6 +100,25 @@ export const getImageSampleCut = () => {
       .then(res => {
         const data = res.data.data;
         dispatch(changeImageCutSample(data));
+      })
+      .catch(() => {
+        console.log("get image cut sample error");
+      });
+  };
+};
+
+const changeImageCutAll = data => ({
+  type: actionTypes.CHANGE_IMAGE_CUT_ALL,
+  cutAllList: data
+});
+
+export const getImageCutAll = () => {
+  return dispatch => {
+    axios
+      .get("/api/fd_cutall.json")
+      .then(res => {
+        const data = res.data.data;
+        dispatch(changeImageCutAll(data));
       })
       .catch(() => {
         console.log("get image cut sample error");

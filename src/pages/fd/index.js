@@ -4,10 +4,10 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 16:58:30
+ * @LastEditTime: 2019-10-29 17:46:30
  */
 // Package
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { actionCreators } from "./store";
@@ -72,7 +72,8 @@ class FD extends Component {
       handleBtnPause,
       handleBtnRedo,
       cutList,
-      cutSampleList
+      cutSampleList,
+      cutAllList
     } = this.props;
 
     return (
@@ -155,6 +156,22 @@ class FD extends Component {
             </Card>
           </Col>
         </Row>
+        <Row className={style["cutImage"]}>
+          <Card title="Output Image Face Cut And Cut Sample Stroke">
+            {cutAllList.map((item, index) => (
+              <div className={style["cutAllGroup"]}>
+                <img
+                  src={"cut/" + item.get("name")}
+                  alt={item.get("name")}
+                ></img>
+                <img
+                  src={"cut_sample/" + item.get("samplename")}
+                  alt={item.get("samplename")}
+                ></img>
+              </div>
+            ))}
+          </Card>
+        </Row>
       </div>
     );
   }
@@ -162,6 +179,7 @@ class FD extends Component {
   componentDidMount() {
     this.props.getImageCut();
     this.props.getImageSampleCut();
+    this.props.getImageCutAll();
   }
 }
 
@@ -172,7 +190,8 @@ const mapState = state => ({
   callBackInterval: state.getIn(["fd", "callBackInterval"]),
 
   cutList: state.getIn(["fd", "cutList"]),
-  cutSampleList: state.getIn(["fd", "cutSampleList"])
+  cutSampleList: state.getIn(["fd", "cutSampleList"]),
+  cutAllList: state.getIn(["fd", "cutAllList"])
 });
 
 const mapDispatch = dispatch => ({
@@ -215,6 +234,9 @@ const mapDispatch = dispatch => ({
   },
   getImageSampleCut() {
     dispatch(actionCreators.getImageSampleCut());
+  },
+  getImageCutAll() {
+    dispatch(actionCreators.getImageCutAll());
   }
 });
 

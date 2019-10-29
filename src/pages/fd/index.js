@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-28 21:56:55
+ * @LastEditTime: 2019-10-29 10:11:52
  */
 // Package
 import React, { Component } from "react";
@@ -73,7 +73,7 @@ class FD extends Component {
     } = this.props;
 
     return (
-      <div className={style["Home"]}>
+      <div className={style["FD"]}>
         <Row className={style["header"]}>
           <span className={style["title"]}>人脸检测</span>
         </Row>
@@ -117,7 +117,8 @@ class FD extends Component {
           </div>
           <Card title="Output Image">
             <div className={style["outputImage"]}>
-              {callback ? this.updateOutput() : ""}
+              {/* {callback ? this.updateOutput() : ""} */}
+              <img src="./face.jpg" alt="inputImg" style={{ width: "100%" }} />
             </div>
           </Card>
         </Row>

@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:11:56
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-28 22:00:11
+ * @LastEditTime: 2019-10-29 10:58:02
  */
 // Package
 import React, { Component } from "react";
@@ -20,7 +20,7 @@ import SR from "./pages/sr/loadable";
 // CSS
 import style from "./style.module.less";
 
-import { Col, Row, Menu } from "antd";
+import { Col, Row, Menu, Icon } from "antd";
 
 class App extends Component {
   render() {
@@ -30,7 +30,13 @@ class App extends Component {
           <Row className={style["App"]}>
             <Col className={style["left"]}>
               <Row className={style["header"]}>
-                <img className={style["logo"]} src="./logo0.png"></img>
+                <Link to="/">
+                  <img
+                    className={style["logo"]}
+                    alt="logo"
+                    src="./logo0.png"
+                  ></img>
+                </Link>
                 {/* <span className={style["title"]}>媒体智能实验室</span> */}
               </Row>
               <Row>
@@ -53,6 +59,20 @@ class App extends Component {
                     <Link to="/sr">图像超分辨率重建</Link>
                   </Menu.Item>
                 </Menu>
+              </Row>
+              <Row className={style["footer"]}>
+                <p>
+                  <a href="http://www.hdu.edu.cn/">
+                    <span>HDU</span>
+                  </a>
+                  <a href="https://github.com/HDUMIL">
+                    <Icon type="github" />
+                  </a>
+                  <a href="http://mil.hdu.edu.cn">
+                    <span>MIL</span>
+                  </a>
+                </p>
+                <Row>Copyright &copy; 媒体智能实验室</Row>
               </Row>
             </Col>
             <Col className={style["right"]}>

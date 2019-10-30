@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 17:46:30
+ * @LastEditTime: 2019-10-30 09:21:49
  */
 // Package
 import React, { Component, Fragment } from "react";
@@ -38,7 +38,13 @@ function beforeUpload(file) {
 class FD extends Component {
   // 上传回调
   handleChange = async info => {
-    const { updateLoadingStatus, updateImgUrl, waitingCallBack } = this.props;
+    const {
+      updateLoadingStatus,
+      updateImgOriginUrl,
+      waitingCallBack,
+      artificialUploadDone,
+      artificialCallBack
+    } = this.props;
 
     if (info.file.status === "uploading") {
       updateLoadingStatus();
@@ -47,10 +53,12 @@ class FD extends Component {
     if (info.file.status === "done") {
       // Get this url from response in real world.
       getBase64(info.file.originFileObj, imageUrl => {
-        updateImgUrl(imageUrl);
+        updateImgOriginUrl(imageUrl);
       });
       // 当 input image 上传完成后，就开启定时器，来每一秒钟检测一次 ajax 的回调结果。
-      window.callBackInterval = setInterval(waitingCallBack, 1000);
+      // window.callBackInterval = setInterval(waitingCallBack, 1000);
+      setTimeout(artificialUploadDone, 0);
+      setTimeout(artificialCallBack, 5000);
     }
   };
 
@@ -59,12 +67,15 @@ class FD extends Component {
     clearInterval(window.callBackInterval);
     this.props.getImageCut();
     return (
-      <img src={this.props.imgUrl} alt="inputImg" style={{ width: "100%" }} />
+      <div className={style["outputImage"]}>
+        <img src={this.props.imgUrl} alt="inputImg" style={{ width: "100%" }} />
+      </div>
     );
   }
 
   render() {
     const {
+      imgOriginUrl,
       imgUrl,
       loading,
       callback,
@@ -93,8 +104,12 @@ class FD extends Component {
                 beforeUpload={beforeUpload}
                 onChange={this.handleChange}
               >
-                {imgUrl ? (
-                  <img src={imgUrl} alt="inputImg" style={{ width: "100%" }} />
+                {imgOriginUrl ? (
+                  <img
+                    src={imgOriginUrl}
+                    alt="inputImg"
+                    style={{ width: "100%" }}
+                  />
                 ) : (
                   <div>
                     <Icon type={loading ? "loading" : "plus"} />
@@ -123,18 +138,16 @@ class FD extends Component {
           </Col>
           <Col span={9}>
             <Card title="Output Image">
-              <div className={style["outputImage"]}>
-                {/* {callback ? this.updateOutput() : ""} */}
-                <img
+              {callback ? this.updateOutput() : ""}
+              {/* <img
                   src="./multi.jpg"
                   alt="inputImg"
                   style={{ width: "100%" }}
-                />
-              </div>
+                /> */}
             </Card>
           </Col>
         </Row>
-        <Row className={style["cutImage"]}>
+        {/* <Row className={style["cutImage"]}>
           <Col span={11}>
             <Card title="Output Image Face Cut">
               {cutList.map((item, index) => (
@@ -155,21 +168,23 @@ class FD extends Component {
               ))}
             </Card>
           </Col>
-        </Row>
+        </Row> */}
         <Row className={style["cutImage"]}>
           <Card title="Output Image Face Cut And Cut Sample Stroke">
-            {cutAllList.map((item, index) => (
-              <div className={style["cutAllGroup"]}>
-                <img
-                  src={"cut/" + item.get("name")}
-                  alt={item.get("name")}
-                ></img>
-                <img
-                  src={"cut_sample/" + item.get("samplename")}
-                  alt={item.get("samplename")}
-                ></img>
-              </div>
-            ))}
+            {callback
+              ? cutAllList.map((item, index) => (
+                  <div className={style["cutAllGroup"]}>
+                    <img
+                      src={"cut/" + item.get("name")}
+                      alt={item.get("name")}
+                    ></img>
+                    <img
+                      src={"cut_sample/" + item.get("samplename")}
+                      alt={item.get("samplename")}
+                    ></img>
+                  </div>
+                ))
+              : ""}
           </Card>
         </Row>
       </div>
@@ -184,6 +199,7 @@ class FD extends Component {
 }
 
 const mapState = state => ({
+  imgOriginUrl: state.getIn(["fd", "imgOriginUrl"]),
   imgUrl: state.getIn(["fd", "imgUrl"]),
   loading: state.getIn(["fd", "loading"]),
   callback: state.getIn(["fd", "callback"]),
@@ -195,8 +211,8 @@ const mapState = state => ({
 });
 
 const mapDispatch = dispatch => ({
-  updateImgUrl(imageUrl) {
-    dispatch(actionCreators.updateImgUrl(imageUrl));
+  updateImgOriginUrl(imageUrl) {
+    dispatch(actionCreators.updateImgOriginUrl(imageUrl));
   },
   updateLoadingStatus() {
     dispatch(actionCreators.updateLoadingStatus());
@@ -225,7 +241,7 @@ const mapDispatch = dispatch => ({
     message.warning(`重新运行`);
     // 当强行进行人工中止运行时，同时关闭等待回传定时器。
     clearInterval(window.callBackInterval);
-    dispatch(actionCreators.updateImgUrl());
+    dispatch(actionCreators.updateImgOriginUrl());
     dispatch(actionCreators.handleBtnPause());
   },
 
@@ -237,6 +253,13 @@ const mapDispatch = dispatch => ({
   },
   getImageCutAll() {
     dispatch(actionCreators.getImageCutAll());
+  },
+
+  artificialUploadDone() {
+    dispatch(actionCreators.artificialUploadDone());
+  },
+  artificialCallBack() {
+    dispatch(actionCreators.artificialCallBack());
   }
 });
 

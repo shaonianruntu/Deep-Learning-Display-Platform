@@ -4,12 +4,13 @@
  * @Github:
  * @Date: 2019-10-15 14:51:22
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 17:45:06
+ * @LastEditTime: 2019-10-30 09:22:48
  */
 import { actionTypes } from "./index";
 import { fromJS } from "immutable";
 
 const defaultState = fromJS({
+  imgOriginUrl: "",
   imgUrl: "",
   loading: false,
   callback: false,
@@ -24,7 +25,7 @@ export default (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.UPDATE_IMG_URL:
       return state.merge({
-        imgUrl: action.imgUrl,
+        imgOriginUrl: action.imgOriginUrl,
         loading: false,
         callback: false
       });
@@ -39,6 +40,17 @@ export default (state = defaultState, action) => {
       return state.set("cutSampleList", fromJS(action.cutSampleList));
     case actionTypes.CHANGE_IMAGE_CUT_ALL:
       return state.set("cutAllList", fromJS(action.cutAllList));
+
+    case actionTypes.ARTIFICIAL_UPLOAD_DONE:
+      return state.merge({
+        imgOriginUrl: "test_multi.jpg",
+        loading: false
+      });
+    case actionTypes.ARTIFICIAL_CALLBACK:
+      return state.merge({
+        imgUrl: "multi.jpg",
+        callback: true
+      });
     default:
       return state;
   }

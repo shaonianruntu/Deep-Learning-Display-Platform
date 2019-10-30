@@ -4,10 +4,10 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 10:10:09
+ * @LastEditTime: 2019-10-30 12:28:12
  */
 // Package
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { actionCreators } from "./store";
@@ -35,7 +35,7 @@ function beforeUpload(file) {
   return isJpgOrPng;
 }
 
-class SR extends Component {
+class SR extends PureComponent {
   // 上传回调
   handleChange = async info => {
     const { updateLoadingStatus, updateImgUrl, waitingCallBack } = this.props;

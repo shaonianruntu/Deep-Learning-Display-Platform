@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-30 12:27:54
+ * @LastEditTime: 2019-10-30 14:01:08
  */
 // Package
 import React, { PureComponent } from "react";
@@ -56,7 +56,7 @@ class FD extends PureComponent {
       });
       // 当 input image 上传完成后，就开启定时器，来每一秒钟检测一次 ajax 的回调结果。
       // window.callBackInterval = setInterval(waitingCallBack, 1000);
-      setTimeout(artificialCallBack, 5000);
+      setTimeout(artificialCallBack, 8000);
     }
   };
 
@@ -92,7 +92,7 @@ class FD extends PureComponent {
         </Row>
         <Row className={style["content"]}>
           <Col span={9}>
-            <Card title="Input Image">
+            <Card title="输入图像">
               <Upload
                 name="inputImg"
                 listType="picture-card"
@@ -135,7 +135,7 @@ class FD extends PureComponent {
             />
           </Col>
           <Col span={9}>
-            <Card title="Output Image">
+            <Card title="带人脸框标记的输出图像">
               {callback ? this.updateOutput() : ""}
               {/* <img
                   src="./multi.jpg"
@@ -168,7 +168,7 @@ class FD extends PureComponent {
           </Col>
         </Row> */}
         <Row className={style["cutImage"]}>
-          <Card title="Output Image Face Cut And Cut Sample Stroke">
+          <Card title="识别人脸的剪裁结果与其简笔画风格效果转换结果">
             {callback
               ? cutAllList.map((item, index) => (
                   <div className={style["cutAllGroup"]}>

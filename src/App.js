@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:11:56
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-29 17:56:51
+ * @LastEditTime: 2019-10-30 13:57:39
  */
 // Package
 import React, { Component } from "react";
@@ -55,9 +55,9 @@ class App extends Component {
                     <Link to="/fp">人脸画像合成</Link>
                   </Menu.Item>
 
-                  <Menu.Item key="3">
+                  {/* <Menu.Item key="3">
                     <Link to="/sr">图像超分辨率重建</Link>
-                  </Menu.Item>
+                  </Menu.Item> */}
                 </Menu>
               </Row>
               <Row className={style["footer"]}>

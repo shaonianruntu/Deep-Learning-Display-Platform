@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-28 16:58:11
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-30 09:21:49
+ * @LastEditTime: 2019-10-30 12:26:17
  */
 // Package
 import React, { Component, Fragment } from "react";
@@ -42,7 +42,6 @@ class FD extends Component {
       updateLoadingStatus,
       updateImgOriginUrl,
       waitingCallBack,
-      artificialUploadDone,
       artificialCallBack
     } = this.props;
 
@@ -57,7 +56,6 @@ class FD extends Component {
       });
       // 当 input image 上传完成后，就开启定时器，来每一秒钟检测一次 ajax 的回调结果。
       // window.callBackInterval = setInterval(waitingCallBack, 1000);
-      setTimeout(artificialUploadDone, 0);
       setTimeout(artificialCallBack, 5000);
     }
   };
@@ -113,7 +111,7 @@ class FD extends Component {
                 ) : (
                   <div>
                     <Icon type={loading ? "loading" : "plus"} />
-                    <div className="ant-upload-text">Upload</div>
+                    <div className="ant-upload-text">上传图片</div>
                   </div>
                 )}
               </Upload>
@@ -255,9 +253,6 @@ const mapDispatch = dispatch => ({
     dispatch(actionCreators.getImageCutAll());
   },
 
-  artificialUploadDone() {
-    dispatch(actionCreators.artificialUploadDone());
-  },
   artificialCallBack() {
     dispatch(actionCreators.artificialCallBack());
   }

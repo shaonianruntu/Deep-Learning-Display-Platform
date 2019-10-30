@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-15 14:51:22
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-30 09:22:48
+ * @LastEditTime: 2019-10-30 12:25:56
  */
 import { actionTypes } from "./index";
 import { fromJS } from "immutable";
@@ -41,11 +41,6 @@ export default (state = defaultState, action) => {
     case actionTypes.CHANGE_IMAGE_CUT_ALL:
       return state.set("cutAllList", fromJS(action.cutAllList));
 
-    case actionTypes.ARTIFICIAL_UPLOAD_DONE:
-      return state.merge({
-        imgOriginUrl: "test_multi.jpg",
-        loading: false
-      });
     case actionTypes.ARTIFICIAL_CALLBACK:
       return state.merge({
         imgUrl: "multi.jpg",

@@ -4,7 +4,7 @@
  * @Github:
  * @Date: 2019-10-15 16:50:26
  * @LastEditors: fangn
- * @LastEditTime: 2019-10-30 09:23:21
+ * @LastEditTime: 2019-10-30 12:26:07
  */
 import { actionTypes } from "./index";
 import axios from "axios";
@@ -126,9 +126,6 @@ export const getImageCutAll = () => {
   };
 };
 
-export const artificialUploadDone = () => ({
-  type: actionTypes.ARTIFICIAL_UPLOAD_DONE
-});
 export const artificialCallBack = () => ({
   type: actionTypes.ARTIFICIAL_CALLBACK
 });

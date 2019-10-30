@@ -14,5 +14,4 @@ export const CHANGE_IMAGE_CUT = "home/change_image_cut";
 export const CHANGE_IMAGE_CUT_SAMPLE = "home/change_image_cut_sample";
 export const CHANGE_IMAGE_CUT_ALL = "home/change_image_cut_all";
 
-export const ARTIFICIAL_UPLOAD_DONE = "home/artificial_upload_done";
 export const ARTIFICIAL_CALLBACK = "home/artificial_callback";

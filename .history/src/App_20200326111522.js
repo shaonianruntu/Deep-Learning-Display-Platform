@@ -3,8 +3,8 @@
  * @Author: fangn
  * @Github:
  * @Date: 2019-10-28 16:11:56
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-03-28 20:52:12
+ * @LastEditors: fangn
+ * @LastEditTime: 2019-10-30 13:57:39
  */
 // Package
 import React, { Component } from "react";
@@ -48,7 +48,7 @@ class App extends Component {
                   mode="inline"
                 >
                   <Menu.Item key="1">
-                    <Link to="/">图像人脸检测</Link>
+                    <Link to="/">人脸检测</Link>
                   </Menu.Item>
 
                   <Menu.Item key="2">

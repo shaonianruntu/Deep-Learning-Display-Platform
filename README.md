@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MIL Experimental Display Platform
 
-## Available Scripts
+<a href="https://github.com/HDUMIL-Gao-Group"><img src="https://img.shields.io/badge/Organization-%20Gao%20Group%20@%20HDUMIL-blue"></img></a>
+<a href="https://github.com/shaonianruntu"><img src="https://img.shields.io/badge/Auther-方楠-yellow"></img></a>
 
-In the project directory, you can run:
 
-### `yarn start`
+## Usage
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. `yarn install` install environment package
+2. `yarn start` run the app in your browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Interface Screenshots
 
-### `yarn test`
+### Page “用户人脸检测”
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div center>
+<img src="README/1.png">
+</div>
 
-### `yarn build`
+Click "Upload Image" button, choose "./public/test_multi.jpg" and click "run" button in the right. Wait a minute, the result will show on the right and button.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div center>
+<img src="README/2.png">
+</div>
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Page “人脸画像合成”
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<div center>
+<img src="README/3.png">
+</div>
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## References
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [AliPay 'Ant Design' Design System](https://ant.design/index-cn)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Contributors
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[@shaonianruntu](https://github.com/shaonianruntu)
 
-## Learn More
+## License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[MIT](LICENSE) © [@shaonianruntu](https://github.com/shaonianruntu)

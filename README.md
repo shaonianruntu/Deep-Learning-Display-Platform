@@ -1,4 +1,4 @@
-# MIL Experimental Display Platform
+# Deep Learning Display Platform for HDU-MIL Lab
 
 <a href="https://github.com/HDUMIL-Gao-Group"><img src="https://img.shields.io/badge/Organization-%20Gao%20Group%20@%20HDUMIL-blue"></img></a>
 <a href="https://github.com/shaonianruntu"><img src="https://img.shields.io/badge/Auther-方楠-yellow"></img></a>
